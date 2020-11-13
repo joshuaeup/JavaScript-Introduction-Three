@@ -1,10 +1,14 @@
 "use strict";
 // Person Constructor
 const Person = function (name, job, age) {
+	// ----- FIELDS -----
 	(this.name = name), (this.job = job), (this.age = age);
+	// ----- METHODS -----
+	// Prints message to console with variables
+	// this.fetchJob = () => console.log(`${this.name} is a ${this.job}`);
 };
 // Prints message to console
-Person.prototype.exercise = function () {
+Person.prototype.exercise = () => {
 	console.log("Running is fun! - said no one ever");
 };
 
@@ -12,14 +16,47 @@ Person.prototype.exercise = function () {
 Person.prototype.fetchJob = function () {
 	console.log(`${this.name} is a ${this.job}`);
 };
+
 // Create person instance using new keyword
 const person1 = new Person("Joshua Proctor", "Software Developer", 21);
-// person1.exercise();
 
 // Programmer Constructor
 const Programmer = function (languages) {
+	// ----- FIELDS -----
 	this.languages = languages;
 	this.busy = true;
+
+	// ----- METHODS -----
+	// Sets busy property to false
+	this.completeTask = () => {
+		this.busy = false;
+	};
+
+	// Sets busy property to true
+	this.acceptNewTask = () => {
+		this.busy = true;
+	};
+
+	// Checks state of busy then prints message accordingly
+	this.offerNewTask = () => {
+		console.log(
+			this.busy === true
+				? `${this.name} can't accept any new tasks right now`
+				: `${this.name} would love to take on a new responsibility`
+		);
+	};
+
+	// Pushes new value to languages array
+	this.learnLanguage = (language) => {
+		this.languages.push(language);
+	};
+
+	// Logs all collected languages
+	this.listLanguages = () => {
+		for (const i of this.languages) {
+			console.log(i);
+		}
+	};
 };
 
 // Allows Programer to inherit from Person
@@ -32,34 +69,23 @@ Object.defineProperty(Programmer.prototype, "constructor", {
 	writable: true,
 });
 
-// Sets busy property to false
-Programmer.prototype.completeTask = function () {
-	this.busy = false;
-};
-
-// Sets busy property to true
-Programmer.prototype.acceptNewTask = function () {
-	this.busy = true;
-};
-
-// Checks state of busy then prints message accordingly
-Programmer.prototype.offerNewTask = function () {
-	console.log(
-		this.busy === true
-			? `${this.name} can't accept any new tasks right now`
-			: `${this.name} would love to take on a new responsibility`
-	);
-};
-
-Programmer.prototype.learnLanguage = function (language) {
-	this.languages.push(language);
-};
-
-Programmer.prototype.listLanguages = function () {
-	// this.languages = languages + language
-	for (const i of this.languages) {
-		console.log(i);
-	}
-};
 // Create Programmer instance using new keyword
-const Josh = new Programmer(["Java", "JavaScript"]);
+const programmerOne = new Programmer(["Java", "JavaScript"]);
+(programmerOne.name = "Josh"), (programmerOne.job = "Software Developer");
+programmerOne.age = 21;
+
+// ----- METHOD CALLS -----
+// Person methods
+programmerOne.exercise();
+
+programmerOne.fetchJob();
+
+// Programmer Busy Methods
+console.log(programmerOne.busy);
+programmerOne.completeTask();
+console.log(programmerOne.busy);
+programmerOne.offerNewTask();
+
+// Programmer Array Methods
+programmerOne.learnLanguage("C#");
+programmerOne.listLanguages();

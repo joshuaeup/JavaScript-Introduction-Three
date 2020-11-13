@@ -1,9 +1,9 @@
 "use strict";
 
 // Person fuction
-let person = function () {
+const person = () => {
 	// Function to retreive person data
-	return function () {
+	return () => {
 		// Data
 		let pii = {
 			firstName: "Joe",
@@ -12,20 +12,14 @@ let person = function () {
 			_ssn: 123456789,
 		};
 
-		// Function to retrieve data from an object using destructuring
-		function getName({ firstName, lastName }) {
-			return firstName + " " + lastName;
-		}
+		// // Function to retrieve data from an object using destructuring
+		let getName = ({ firstName, lastName }) => firstName + " " + lastName;
 
-		// retrieve returns the getName function while the rest of the object remains private
+		// Inner function returns the getName function while the rest of the object remains private
 		return getName(pii);
 	};
 };
-// Store person object within variable
+// Store person function within variable and gain access to inner code
 const person1 = person();
-console.dir(person1);
 // Call and log variable to invoke the closure(inner object)
 console.log(person1());
-
-// Return the final closure retrieve without () so that you don't invoke it
-// return retrieve;
