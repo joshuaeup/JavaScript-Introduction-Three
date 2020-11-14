@@ -3,10 +3,8 @@
 const Person = function (name, job, age) {
 	// ----- FIELDS -----
 	(this.name = name), (this.job = job), (this.age = age);
-	// ----- METHODS -----
-	// Prints message to console with variables
-	// this.fetchJob = () => console.log(`${this.name} is a ${this.job}`);
 };
+// ----- METHODS -----
 // Prints message to console
 Person.prototype.exercise = () => {
 	console.log("Running is fun! - said no one ever");
