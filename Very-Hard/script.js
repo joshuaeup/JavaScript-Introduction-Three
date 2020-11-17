@@ -4,9 +4,9 @@ const Person = function (name, job, age) {
 	// ----- FIELDS -----
 	(this.name = name), (this.job = job), (this.age = age);
 };
-// ----- METHODS -----
+// ----- EXTERNAL METHODS -----
 // Prints message to console
-Person.prototype.exercise = () => {
+Person.prototype.exercise = function () {
 	console.log("Running is fun! - said no one ever");
 };
 
@@ -24,19 +24,19 @@ const Programmer = function (languages) {
 	this.languages = languages;
 	this.busy = true;
 
-	// ----- METHODS -----
+	// ----- INTERNAL METHODS -----
 	// Sets busy property to false
-	this.completeTask = () => {
+	this.completeTask = function () {
 		this.busy = false;
 	};
 
 	// Sets busy property to true
-	this.acceptNewTask = () => {
+	this.acceptNewTask = function () {
 		this.busy = true;
 	};
 
 	// Checks state of busy then prints message accordingly
-	this.offerNewTask = () => {
+	this.offerNewTask = function () {
 		console.log(
 			this.busy === true
 				? `${this.name} can't accept any new tasks right now`
@@ -45,12 +45,12 @@ const Programmer = function (languages) {
 	};
 
 	// Pushes new value to languages array
-	this.learnLanguage = (language) => {
+	this.learnLanguage = function (language) {
 		this.languages.push(language);
 	};
 
 	// Logs all collected languages
-	this.listLanguages = () => {
+	this.listLanguages = function () {
 		for (const i of this.languages) {
 			console.log(i);
 		}
