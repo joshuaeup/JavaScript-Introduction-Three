@@ -4,7 +4,7 @@
 const person = () => {
 	// Function to retreive person data
 	return () => {
-		// Data
+		// Data pulled from Database
 		let pii = {
 			firstName: "Joe",
 			lastName: "Johnson",
@@ -23,3 +23,16 @@ const person = () => {
 const person1 = person();
 // Call and log variable to invoke the closure(inner object)
 console.log(person1());
+
+// const security = (name, ssn) => {
+// 	let pii = {
+// 		name: this.name,
+// 		_ssn: this.ssn,
+// 		getInfo: function () {
+// 			console.log(name);
+// 		},
+// 	};
+// 	pii.getInfo();
+// };
+
+// security("Josh", 123455);

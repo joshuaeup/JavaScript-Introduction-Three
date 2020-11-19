@@ -71,9 +71,12 @@ Object.defineProperty(Programmer.prototype, "constructor", {
 const programmerOne = new Programmer(["Java", "JavaScript"]);
 (programmerOne.name = "Josh"), (programmerOne.job = "Software Developer");
 programmerOne.age = 21;
+const programmerTwo = new Programmer(["C", "C#"]);
+(programmerTwo.name = "Tim"), (programmerTwo.job = "AI Engineer");
+programmerTwo.age = 55;
 
 // ----- METHOD CALLS -----
-// Person methods
+// PERSON 1 METHODS
 programmerOne.exercise();
 
 programmerOne.fetchJob();
@@ -87,3 +90,18 @@ programmerOne.offerNewTask();
 // Programmer Array Methods
 programmerOne.learnLanguage("C#");
 programmerOne.listLanguages();
+
+// PERSON 2 METHODS
+programmerTwo.exercise();
+
+programmerTwo.fetchJob();
+
+// Programmer Busy Methods
+console.log(programmerTwo.busy);
+programmerTwo.completeTask();
+console.log(programmerTwo.busy);
+programmerTwo.offerNewTask();
+
+// Programmer Array Methods
+programmerTwo.learnLanguage("HTML");
+programmerTwo.listLanguages();
