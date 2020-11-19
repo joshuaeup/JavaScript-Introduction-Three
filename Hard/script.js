@@ -23,16 +23,3 @@ const person = () => {
 const person1 = person();
 // Call and log variable to invoke the closure(inner object)
 console.log(person1());
-
-// const security = (name, ssn) => {
-// 	let pii = {
-// 		name: this.name,
-// 		_ssn: this.ssn,
-// 		getInfo: function () {
-// 			console.log(name);
-// 		},
-// 	};
-// 	pii.getInfo();
-// };
-
-// security("Josh", 123455);
